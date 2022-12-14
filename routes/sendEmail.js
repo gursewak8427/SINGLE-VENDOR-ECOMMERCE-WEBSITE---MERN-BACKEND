@@ -122,32 +122,32 @@ async function sendEmail(req, type, person, order, orderIndex) {
     if (type == ORDER_PLACED_FOR_USER) {
         var toEmail = person.user_email;
         var subject = "New Order Placed Successfully at " + order.orderTime[0] + " | Style Factory"
-        var text = "Thanks for order (ORDER ID : " + order.orderId + "). Check your order detail at following link : \nhttp://localhost:3000/orders"
+        var text = "Thanks for order (ORDER ID : " + order.orderId + "). Check your order detail at following link : \nhttps://single-vendor-ecommerce-website-mern.vercel.app/orders"
         Email.sendEmailWithoutFile(toEmail, subject, text)
     } else if (type == ORDER_PROCESSING) {
         var toEmail = person.user_email;
         var subject = "Your Order (" + order.orderId + ") Update" + " | Style Factory"
-        var text = "Status : Processing. \nCheck your order detail at following link : \nhttp://localhost:3000/orders"
+        var text = "Status : Processing. \nCheck your order detail at following link : \nhttps://single-vendor-ecommerce-website-mern.vercel.app/orders"
         Email.sendEmailWithoutFile(toEmail, subject, text)
     } else if (type == ORDER_SHIPPING) {
         var toEmail = person.user_email;
         var subject = "Your Order (" + order.orderId + ") Update" + " | Style Factory"
-        var text = "Status : Shipping. \nCheck your order detail at following link : \nhttp://localhost:3000/orders"
+        var text = "Status : Shipping. \nCheck your order detail at following link : \nhttps://single-vendor-ecommerce-website-mern.vercel.app/orders"
         Email.sendEmailWithoutFile(toEmail, subject, text)
     } else if (type == ORDER_CANCELED) {
         var toEmail = person.user_email;
         var subject = "Sorry! Your Order (" + order.orderId + ") is canceled from Stylefactory" + " | Style Factory"
-        var text = "Check your order detail at following link : \nhttp://localhost:3000/orders"
+        var text = "Check your order detail at following link : \nhttps://single-vendor-ecommerce-website-mern.vercel.app/orders"
         Email.sendEmailWithoutFile(toEmail, subject, text)
     } else if (type == ORDER_PENDING) {
         var toEmail = person.user_email;
         var subject = "Your Order (" + order.orderId + ") Update" + " | Style Factory"
-        var text = "Status : Pending. \nSorry! Due to internal problem, your order is again set to pending. We'll process your order withing 1-2 business days \nCheck your order detail at following link : \nhttp://localhost:3000/orders"
+        var text = "Status : Pending. \nSorry! Due to internal problem, your order is again set to pending. We'll process your order withing 1-2 business days \nCheck your order detail at following link : \nhttps://single-vendor-ecommerce-website-mern.vercel.app/orders"
         Email.sendEmailWithoutFile(toEmail, subject, text)
     } else if (type == ORDER_DELIVERED) {
         var toEmail = person.user_email;
         var subject = "Your Order (" + order.orderId + ") Delivered" + " | Style Factory"
-        var text = "Status : Delivered. \n Check your order detail at following link : \nhttp://localhost:3000/orders"
+        var text = "Status : Delivered. \n Check your order detail at following link : \nhttps://single-vendor-ecommerce-website-mern.vercel.app/orders"
 
         // Send Order Delivered Email with Bill at Email
         const url = baseurl + `/files/invoice.html?orderIndex=${orderIndex}&baseurl=${baseurl}`
@@ -165,7 +165,7 @@ async function sendEmail(req, type, person, order, orderIndex) {
             console.log(error)
         }
     }
-    return;
+    return { status: "1", message: "Email Send Successfully", url };
     // var data = req.body
     // let date_ob = new Date();
     // let date = ("0" + date_ob.getDate()).slice(-2);
