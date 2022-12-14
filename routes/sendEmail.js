@@ -118,11 +118,13 @@ class Email {
 }
 
 async function sendEmail(req, type, person, order, orderIndex) {
-    const baseurl = url.format({
-        protocol: req.protocol,
-        host: req.get('host'),
-    });
-
+    // const baseurl = url.format({
+    //     protocol: req.protocol,
+    //     host: req.get('host'),
+    // });
+    const baseurl = 'https://' + req.get('host');
+    console.log("baseURL")
+    console.log(baseurl)
     if (type == ORDER_PLACED_FOR_USER) {
         var toEmail = person.user_email;
         var subject = "New Order Placed Successfully at " + order.orderTime[0] + " | Style Factory"
