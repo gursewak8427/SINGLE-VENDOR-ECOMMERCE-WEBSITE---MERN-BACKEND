@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .logo {
+            max-width: 150px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .dtl1 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #e9ecef;
+            border-radius: 20px;
+            margin-top: 7px;
+            padding: 7px;
+            font-size: 100%;
+            letter-spacing: 1px;
+        }
+
+        .dtl1 span {
+            margin: 0 15px;
+        }
+
+        .rr {
+            text-align: right;
+        }
+
+        .product_details th,
+        .product_details td {
+            text-align: center;
+        }
+
+        tr td:nth-child(5) {
+            text-align: right !important;
+        }
+
+        .itemNameColumn {
+            max-width: 199px;
+        }
+
+        .card.mx-auto {
+            max-width: 1080PX;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="col-12 mx-auto card my-4">
+        <div class="header card-header row justify-content-between">
+            <div class="left">
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/mycloud8427/image/upload/v1668004711/stylefactory_vyixnm.png"
+                        alt="">
+                </div>
+                <h6 class="m-2">BIN : 1000113344</h6>
+            </div>
+            <div class="right text-right">
+                <b>Address</b><br> Sector 122, Mohali <br>
+                Chandigarh, India <br> 140403 <br>
+            </div>
+            <div class="col-12 dtl1">
+                <span><b>Email : </b> support.stylefactory@gmail.com</span>
+                <span><b>Website : </b> <a href="https://stylefactory.com/">www.stylefactory.com</a></span>
+                <span><b>Contact : </b> <b>(+91)</b>9041912980 <span>
+            </div>
+        </div>
+        <div class="body card-body p-5">
+            <div class="order_details row justify-content-between">
+                <div class="left col-12">
+                    <table>
+                        <tr>
+                            <td>Order Date</td>
+                            <td>&nbsp;: <span id="orderDate"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Order Number</td>
+                            <td>&nbsp;: <b><span id="orderNumber"></span></b></td>
+                        </tr>
+                        <tr>
+                            <td>Transaction ID</td>
+                            <td>&nbsp;: <span id="transactionId"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Payment Source</td>
+                            <td>&nbsp;: <span id="paymentSource"></span> [PREPAID]</td>
+                        </tr>
+                        <tr>
+                            <td>User Name</td>
+                            <td>&nbsp;: <span id="userName"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>&nbsp;: <span id="userEmail"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Billing Address</td>
+                            <td>&nbsp;: <span id="billingAddress"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Address</td>
+                            <td>&nbsp;: <span id="deliveryAddress"></span></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- <div class="right">
+                    <table>
+                        <tr>
+                            <td>User Name</td>
+                            <td>&nbsp;: <span id="userName"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>&nbsp;: <span id="userEmail"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Billing Address</td>
+                            <td>&nbsp;: <span id="billingAddress"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Shipping Address</td>
+                            <td>&nbsp;: <span id="shippingAddress"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Method</td>
+                            <td>&nbsp;: <span id="deliveryMethod"></span></td>
+                        </tr>
+                    </table>
+                </div> -->
+            </div>
+            <div class="product_details">
+                <table class="table my-5">
+                    <thead class="thead-light">
+                        <th scope="col">Sr.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit Price (INR)</th>
+                        <th class="rr" scope="col">Total Amount (INR)</th>
+                    </thead>
+                    <tbody id="allItemDetails">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const orderIndex = urlParams.get('orderIndex')
+            const baseurl = urlParams.get('baseurl')
+
+            console.log("Im here")
+            try {
+                fetch(`${baseurl}/api/vendor/order/156/order_details/${orderIndex}`)
+                    .then((response) => response.json())
+                    .then(({ order }) => {
+                        fetch(`${baseurl}/api/user/auth/156/userDetails/${order[0]}`)
+                            .then((response) => response.json())
+                            .then(({ user }) => {
+                                console.log(user)
+                                console.log(order)
+                                document.getElementById("orderDate").innerText = order[1].orderTime[0]
+                                document.getElementById("orderNumber").innerText = order[1].orderId
+                                document.getElementById("transactionId").innerText = order[1].orderPayment.paymentDetail.TransitionId
+                                document.getElementById("userName").innerText = user.name
+                                document.getElementById("userEmail").innerText = user.user_email
+                                document.getElementById("billingAddress").innerText = order[1].orderAddress
+                                document.getElementById("deliveryAddress").innerText = order[1].orderAddress
+
+                                var itemsHtml = ""
+                                var totalPrice = 0;
+                                order[1].items.map((item, index) => {
+                                    if (item.productType == "0") {
+                                        totalPrice += item.price.price
+                                        itemsHtml += `<tr>
+                                                <td scope="row">${index + 1}</td>
+                                                <td class="itemNameColumn">${item.name}</td>
+                                                <td>${item.itemQty}</td>
+                                                <td>${item.price.price}/-</td>
+                                                <td>${item.itemQty * item.price.price}/-</td>
+                                                </tr>
+                                                `;
+                                    }
+                                    if (item.productType == "1") {
+                                        totalPrice += item.varient.general.price
+                                        itemsHtml += `<tr>
+                                                <td scope="row">${index + 1}</td>
+                                                <td class="itemNameColumn">${item.name}</td>
+                                                <td>${item.itemQty}</td>
+                                                <td>${item.varient.general.price}/-</td>
+                                                <td>${item.itemQty * item.varient.general.price}/-</td>
+                                                </tr>
+                                                `;
+                                    }
+                                    if (index + 1 == order[1].items.length) {
+                                        console.log("finally done!")
+                                        itemsHtml += `<tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><b>Total : ${totalPrice}/-</b></td>
+                                            </tr>
+                                            `;
+                                        document.getElementById("allItemDetails").innerHTML = itemsHtml
+                                    }
+                                })
+
+
+                            });
+
+
+                    });
+            } catch (error) {
+                consolo.log("#error")
+                consolo.log(error)
+            }
+
+        })    
+    </script>
+</body>
+
+</html>
