@@ -31,6 +31,10 @@ class Webpage {
         //     waitUntil: 'networkidle0',
         // });
 
+        await page.waitForSelector('#totalCost', {
+            visible: true,
+        });
+
         const pdfConfig = {
             format: 'A4',
             printBackground: true,
